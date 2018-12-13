@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>
+#include "persona.h"
 
 #ifndef PROFESOR_H
 #define PROFESOR_H
@@ -16,8 +17,10 @@ class Profesor: public Persona{
 
   public:
 
-    Profesor(string DNI, string nombre, string apellidos, int telefono, string gmail, string asignatura, string departamento, bool role):Persona(DNI, nombre, apellidos, telefono, gmail){
-      asignatura_=asignatura; depart6amento_=departamento; role_=role;
+    Profesor(){
+      asignatura_="";
+      departamento_="";
+      role_=0;
     };
 
     void setAsignatura(string asignatura){asignatura_=asignatura;};
@@ -29,12 +32,12 @@ class Profesor: public Persona{
     void setRole(bool role){role_=role;};
     bool getRole(){return role_;};
 
-    void setProfesor(Profesor profesor){profesor_=profesor;};
-    Profesor getPofesor(){return profesor_;};
+    void setProfesor(Profesor *x);
+
+    void getProfesor(Profesor x);
 
   /*  void setCopia(Agenda copia);
     inline Agenda getCopia(){return copia_;};
-
     void setFichero(Agenda fichero);
     Agenda getFichero(Agenda fichero);
 */

@@ -2,6 +2,7 @@
 #define ALUMNO_H
 
 #include <string>
+#include "persona.h"
 
 struct Fecha{
   int dia;
@@ -10,7 +11,7 @@ struct Fecha{
 };
 
 
-class alumno{
+class Alumno: public Persona{
 
 private:
 
@@ -22,6 +23,7 @@ private:
   float nota_;
 
 public:
+  Alumno();
   std::string getDomicilio()const{return domicilio_;};
   Fecha getFecha()const{return fecha_;};
   int getCurso()const{return curso_;};
