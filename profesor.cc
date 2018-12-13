@@ -48,15 +48,33 @@ void Profesor::getProfesor(Profesor x){
 
   int n;
 
-  std::cout<<"Que informacion quieré visualizar del profesor, personal (1) o profesiona (2) \n";
+  std::cout<<"Que informacion quieré visualizar del profesor, personal (1) o profesiona (2), o mostrar toda la info (3) \n";
   std::cout<<"Por favor introduzca el número correspondiente: ";
   std::cin>>n;
 
+  std::cout<<"\n";
+
   switch(n){
     case 1:
-      std::cout<<"|     Nombre       |      Apellido      |      Telefono      |       Email        |\n";
-      std::cout<<"|"<<x.getNombre()<<"|"<<x.getApellidos()<<"|"<<x.getTelefono()<<"|"<<x.getEmail()<<"|\n";
+      
+      std::cout<<"Nombre: "<<x.getNombre()<<"\n"<<"Apellido: "<<x.getApellidos()<<"\n"<<"Telefono: "<<x.getTelefono()<<"\n"<<"Email: "<<x.getEmail()<<"\n";
+      std::cout<<"--------------------------------------------------------"<<endl;
       break;
+
+    case 2:
+
+      std::cout<<"Nombre: "<<x.getNombre()<<"\n";
+      std::cout<<"Asignatura: "<<x.getAsignatura()<<"\n"<<"Departamento: "<<x.getDepartamento()<<"\n"<<"Rol: "<<x.getRole()<<"\n";
+      std::cout<<"--------------------------------------------------------"<<endl;
+      break;
+
+    case 3:
+
+      std::cout<<"Nombre: "<<x.getNombre()<<"\n"<<"Apellido: "<<x.getApellidos()<<"\n"<<"Telefono: "<<x.getTelefono()<<"\n"<<"Email: "<<x.getEmail()<<"\n";      
+      std::cout<<"Asignatura: "<<x.getAsignatura()<<"\n"<<"Departamento: "<<x.getDepartamento()<<"\n"<<"Rol: "<<x.getRole()<<"\n";
+      std::cout<<"--------------------------------------------------------"<<endl;
+      break;
+
   }
 
 }
