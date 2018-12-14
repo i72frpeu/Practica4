@@ -41,10 +41,40 @@ int main(){
 	cin>>b;
 
 	if(b==1){
-		cout<<"1. Introducir alumnos"<<endl;
+		cout<<"1. Introducir alumno"<<endl;
 		cout<<"Rellene los siguientes datos:"<<endl;
 		y.setAlumno();
 	}
+
+	if(b==2){
+		cout<<"2. Mostrar alumno"<<endl;
+		y.getAlumno();
+	}
+
+	if(b==3){
+		cout<<"3. Buscar alumno"<<endl;
+		y.buscaAlumno();
+	}
+
+	/*if(b==4){
+		cout<<"4. Moidifcar alumno"<<endl;
+		y.modificaAlumno();
+	}
+
+	if(b==5){
+		cout<<"5. Borrar alumno"<<endl;
+		//Falta funcion
+	}
+
+	if(b==6){
+		cout<<"6. Realizar copia de seguridad"<<endl;
+		x.setCopia();
+	}
+
+	if(b==7){
+		cout<<"7. Cargar copia de seguridad"<<endl;
+		x.getCopia();
+	}*/
 
   return 0;
 
