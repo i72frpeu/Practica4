@@ -3,7 +3,7 @@
 
 #include "alumno.h"
 
-#include <cstring>
+#include <string>
 #include <iostream>
 #include <list>
 
@@ -11,20 +11,24 @@ using namespace std;
 
 class Agenda:public Alumno{
   private:
-    list<Alumno> listaAlumnos_;
+
+    std::list <Alumno> listaAlumnos_;
     int numeroAlumnos_;
+
   public:
+
     Agenda(){numeroAlumnos_=0;};
 
     void setAlumno();
-    inline void getAlumno(){return listaAlumnos_;};
+    list <Alumno> buscaAlumno();
+    void getAlumno();
 
     void eliminaAlumno();
-    Alumno buscaAlumno();
-    void modificaAlumno();
+    
+   // void modificaAlumno();*/
 
-    Alumno buscar(string DNI);
-    Alumno buscar(string apellidos);
-    Alumno buscar(string email);
+    list <Alumno> buscar_DNI(std::string DNI);
+    list <Alumno> buscar_Apellido(std::string apellidos);
+    list <Alumno> buscar(std::string email);
 };
 #endif

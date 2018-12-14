@@ -37,9 +37,11 @@ class Profesor: public Persona{
     void getProfesor(Profesor x);
 
   /*  void setCopia(Agenda copia);
-    inline Agenda getCopia(){return copia_;};
+      void getCopia(){return copia_;};
+
+  
     void setFichero(Agenda fichero);
-    Agenda getFichero(Agenda fichero);
-*/
+    void getFichero(Agenda fichero);
+  */
 };
 #endif
