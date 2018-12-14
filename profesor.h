@@ -32,7 +32,7 @@ class Profesor: public Persona{
     void setRole(bool role){role_=role;};
     bool getRole(){return role_;};
 
-    void setProfesor(Profesor *x);
+    Profesor setProfesor();
 
     void getProfesor(Profesor x);
 

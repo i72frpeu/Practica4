@@ -2,8 +2,9 @@
 #include "profesor.h"
 #include "persona.h"
 
-void Profesor::setProfesor(Profesor *x){
+Profesor Profesor::setProfesor(){
 
+  Profesor x;
   int aux_i;
   std::string aux;
   bool aux_b;
@@ -11,36 +12,36 @@ void Profesor::setProfesor(Profesor *x){
 
   std::cout<<"Introduzca un DNI del profesor"<<endl;
   std::cin>>aux;
-  (*x).setDNI(aux);
+  x.setDNI(aux);
 
  std::cout<<"Introduzca un Nombre del profesor"<<endl;
   std::cin>>aux;
-  (*x).setNombre(aux);
+  x.setNombre(aux);
 
   std::cout<<"Introduzca el primer Apellido del profesor"<<endl;
   std::cin>>aux;
-  (*x).setApellidos(aux);
+  x.setApellidos(aux);
 
   std::cout<<"Introduzca un telefono del profesor"<<endl;
   std::cin>>aux_i;
-  (*x).setTelefono(aux_i);
+  x.setTelefono(aux_i);
 
 
   std::cout<<"Introduzca un email del profesor"<<endl;
   std::cin>>aux;
-  (*x).setEmail(aux);
+  x.setEmail(aux);
 
   std::cout<<"Introduzca una asignatura que imparte"<<endl;
   std::cin>>aux;
-  (*x).setAsignatura(aux);
+  x.setAsignatura(aux);
 
   std::cout<<"Introduzca una departamento al que pertenece"<<endl;
   std::cin>>aux;
-  (*x).setDepartamento(aux);
+  x.setDepartamento(aux);
 
   std::cout<<"Introduzca el rol del profesor"<<endl;
   std::cin>>aux_b;
-  (*x).setRole(aux_b);
+  x.setRole(aux_b);
 
 }
 
