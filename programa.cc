@@ -8,10 +8,10 @@
 
 int main(){
 
-	//Profesor x;
+	Profesor x;
 	Agenda y;
 
-	/*int a=0;
+	int a=0;
 
 	cout<<"Agenda"<<endl;
 	cout<<"¿Está utilizando el programa por primera vez?"<<endl;
@@ -24,7 +24,7 @@ int main(){
 
 		cout<<"Rellene la siguiente información:"<<endl;
 		x.setProfesor();
-	}*/
+	}
 
 	int b=0;
 
