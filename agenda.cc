@@ -38,12 +38,12 @@ void Agenda::setAlumno(){
   std::cin>>aux_s;
   x.setDomicilio(aux_s);
 
-  std::cout<<"Intoduzca la fecha:";
-  std::cout<<"Dia: ";
+  std::cout<<"Intoduzca la fecha:"<<endl;
+  std::cout<<"Dia:";
   std::cin>>aux_fe.dia;
-  std::cout<<"Mes: ";
+  std::cout<<"Mes:";
   std::cin>>aux_fe.mes;
-  std::cout<<"Año: ";
+  std::cout<<"Año:";
   std::cin>>aux_fe.agno;
   x.setFecha(aux_fe);
 

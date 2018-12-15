@@ -49,7 +49,7 @@ void Profesor::getProfesor(Profesor x){
 
   int n;
 
-  std::cout<<"Que informacion quieré visualizar del profesor, personal (1) o profesiona (2), o mostrar toda la info (3) \n";
+  std::cout<<"Que informacion quieré visualizar del profesor, personal (1) o profesional (2), o mostrar toda la info (3) \n";
   std::cout<<"Por favor introduzca el número correspondiente: ";
   std::cin>>n;
 
