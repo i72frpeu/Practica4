@@ -38,9 +38,8 @@ void Agenda::setAlumno(){
   std::cin>>aux_s;
   x.setEmail(aux_s);
 
-  std::cout<<"Intoduzca el Domicilio:";
-  getline(cin, aux_s);
-  std::cin.ignore();
+  std::cout<<"Intoduzca el Domicilio (sin espacios):";
+  std::cin>>aux_s;
   x.setDomicilio(aux_s);
 
   std::cout<<"Intoduzca la fecha:"<<endl;
