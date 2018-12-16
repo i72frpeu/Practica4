@@ -32,8 +32,8 @@ int main(){
 
 
 	if(a == 1){
-		x.setProfesor(x);
-		x.guardarPorfesor(x);
+		x = x.setProfesor();
+		x.guardarPorfesor();
 	}
 
 	
@@ -73,7 +73,7 @@ int main(){
 
 			if(b==3){
 				cout<<"3. MOSTRAR PROFESOR"<<endl;
-				x.getProfesor(x);
+				x.getProfesor();
 				cout<<"--------------------------------------------------------"<<endl;
 			}
 

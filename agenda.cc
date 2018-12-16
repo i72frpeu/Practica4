@@ -22,9 +22,13 @@ void Agenda::setAlumno(){
   std::cin>>aux_s;
   x.setNombre(aux_s);
 
-  std::cout<<"Intoduzca el Apellido:";
+  std::cout<<"Intoduzca el primer apellido Apellido:";
   std::cin>>aux_s;
-  x.setApellidos(aux_s);
+  x.setApellido1(aux_s);
+
+  std::cout<<"Intoduzca el segundo apellido Apellido:";
+  std::cin>>aux_s;
+  x.setApellido2(aux_s);
 
   std::cout<<"Intoduzca el Telefono:";
   std::cin>>aux_i;
@@ -35,7 +39,8 @@ void Agenda::setAlumno(){
   x.setEmail(aux_s);
 
   std::cout<<"Intoduzca el Domicilio:";
-  std::cin>>aux_s;
+  getline(cin, aux_s);
+  std::cin.ignore();
   x.setDomicilio(aux_s);
 
   std::cout<<"Intoduzca la fecha:"<<endl;
@@ -171,8 +176,8 @@ void Agenda::eliminaAlumno(){
 list <Alumno> Agenda::buscaAlumno(){
   std::list <Alumno> x;
   int n = 0;
-  std::string busqueda;
-  cout<<"Buscar alumno por: 1-DNI, 2-Apellidos, 3-Email "<<endl;
+  std::string busqueda, busqueda2;
+  cout<<"Buscar alumno por: 1-DNI, 2-1º Apellido, 3-2º Apellido, 4-Los dos apellidos, 5-Email "<<endl;
   cin>>n;
   switch(n){
 
@@ -183,12 +188,26 @@ list <Alumno> Agenda::buscaAlumno(){
       break;
 
    case 2:
-      cout<<"Introduce los apellidos\n";
+      cout<<"Introduce el apellido\n";
       cin>>busqueda;
-      x = buscar_Apellido(busqueda);
+      x = buscar_Apellido1(busqueda);
       break;
 
     case 3:
+      cout<<"Introduce el apellido\n";
+      cin>>busqueda;
+      x = buscar_Apellido2(busqueda);
+      break;
+
+    case 4:
+      cout<<"Introduce el primer apellido\n";
+      cin>>busqueda;
+      cout<<"Introduce el segundo apellido\n";
+      cin>>busqueda2;
+      x = buscar_Apellidos(busqueda, busqueda2);
+      break;
+
+    case 5:
       cout<<"Introduce el email\n";
       cin>>busqueda;
       x = buscar(busqueda);
@@ -221,8 +240,8 @@ void Agenda::modificaAlumno(){
   for(i = listaAlumnos_.begin(); i != listaAlumnos_.end(); i++){
     for(k = aux.begin(); k != aux.end(); k++){
       if((*i).getDNI() == (*k).getDNI()){
-        cout<<"Que elemento del alumno quiere cambiar"<<endl;
-        cout<<"1 = DNI, 2 = Nombre, 3 = Apellidos, 4 = Telefono, 5 = Email, 6 = Domicilio, 7 = Fecha de nacimiento, 8 = Curso, 9 = Equipo, 10 = Lider, 10 = Nota"<<endl;
+        cout<<"¿Que elemento del alumno quiere cambiar?"<<endl;
+        cout<<"1 = DNI, 2 = Nombre, 3 = 1º Apellidos, 4 = 2º Apellido, 5 = Telefono, 6 = Email, 7 = Domicilio, 8 = Fecha de nacimiento, 9 = Curso, 10 = Equipo, 11 = Lider, 12 = Nota"<<endl;
         cin>> n;
         switch(n){
           case 1:
@@ -248,30 +267,36 @@ void Agenda::modificaAlumno(){
           break;
 
           case 3:
-            cout<<"Introduzca los nuevos Apellidos"<<endl;
+            cout<<"Introduzca el nuevo Apellido"<<endl;
             cin>>aux_s;
-            (*i).setApellidos(aux_s);
+            (*i).setApellido1(aux_s);
           break;
 
-          case 4:
+           case 4:
+            cout<<"Introduzca el nuevo Apellido"<<endl;
+            cin>>aux_s;
+            (*i).setApellido2(aux_s);
+          break;
+
+          case 5:
             cout<<"Introduzca el nuevo Telefono"<<endl;
             cin>>aux_i;
             (*i).setTelefono(aux_i);
           break;
 
-          case 5:
+          case 6:
             cout<<"Introduzca el nuevo Email"<<endl;
             cin>>aux_s;
             (*i).setEmail(aux_s);
           break;     
 
-          case 6:
+          case 7:
             cout<<"Introduzca el nuevo Domicilio"<<endl;
             cin>>aux_s;
             (*i).setDomicilio(aux_s);
           break; 
 
-          case 7:
+          case 8:
             cout<<"Introduzca la nueva Fecha de Nacimiento"<<endl;
             cin>>aux_fe.dia;
             cin>>aux_fe.mes;
@@ -279,19 +304,19 @@ void Agenda::modificaAlumno(){
             (*i).setFecha(aux_fe);
           break; 
 
-          case 8:
+          case 9:
             cout<<"Introduzca el nuevo Curso"<<endl;
             cin>>aux_i;
             (*i).setCurso(aux_i);
           break;   
 
-          case 9:
+          case 10:
             cout<<"Introduzca el nuevo Equipo"<<endl;
             cin>>aux_i;
             (*i).setEquipo(aux_i);
           break;
 
-          case 10:
+          case 11:
             if((*i).getLider() == true){
               (*i).setLider(false);
             }else{
@@ -299,7 +324,7 @@ void Agenda::modificaAlumno(){
             }
           break;
 
-          case 11:
+          case 12:
             cout<<"Introduzca la nueva Nota"<<endl;
             cin>>aux_f;
             (*i).setNota(aux_f);
@@ -330,7 +355,7 @@ list <Alumno> Agenda::buscar_DNI(std::string DNI){
 }
 
 
-list <Alumno> Agenda::buscar_Apellido(std::string apellidos){
+list <Alumno> Agenda::buscar_Apellido1(std::string apellido){
 
   std::list <Alumno> aux;
   std::list<Alumno>::iterator i;
@@ -340,7 +365,43 @@ list <Alumno> Agenda::buscar_Apellido(std::string apellidos){
     exit(0);
   }else{
     for(i=listaAlumnos_.begin(); i!=listaAlumnos_.end(); i++){
-      if(i->getApellidos()==apellidos){
+      if(i->getApellido1()==apellido){
+       aux.push_back(*i);
+      }
+    }
+    return(aux);
+  }
+}
+
+list <Alumno> Agenda::buscar_Apellido2(std::string apellido){
+
+  std::list <Alumno> aux;
+  std::list<Alumno>::iterator i;
+
+  if(listaAlumnos_.empty()==true){
+    cout<<"Error, no hay alumnos en la lista \n"<<endl;
+    exit(0);
+  }else{
+    for(i=listaAlumnos_.begin(); i!=listaAlumnos_.end(); i++){
+      if(i->getApellido2()==apellido){
+       aux.push_back(*i);
+      }
+    }
+    return(aux);
+  }
+}
+
+list <Alumno> Agenda::buscar_Apellidos(std::string apellido1, std::string apellido2){
+
+  std::list <Alumno> aux;
+  std::list<Alumno>::iterator i;
+
+  if(listaAlumnos_.empty()==true){
+    cout<<"Error, no hay alumnos en la lista \n"<<endl;
+    exit(0);
+  }else{
+    for(i=listaAlumnos_.begin(); i!=listaAlumnos_.end(); i++){
+      if((i->getApellido1()==apellido1) && (i->getApellido2()==apellido2)){
        aux.push_back(*i);
       }
     }

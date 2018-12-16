@@ -28,7 +28,9 @@ class Agenda:public Alumno{
     void modificaAlumno();
 
     list <Alumno> buscar_DNI(std::string DNI);
-    list <Alumno> buscar_Apellido(std::string apellidos);
+    list <Alumno> buscar_Apellido1(std::string apellido);
+    list <Alumno> buscar_Apellido2(std::string apellido);
+    list <Alumno> buscar_Apellidos(std::string apellido1,std::string apellido2);
     list <Alumno> buscar(std::string email);
 };
 #endif

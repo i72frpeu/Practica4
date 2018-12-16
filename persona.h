@@ -13,7 +13,8 @@ class Persona{
 
 		string dni_;
 		string nombre_;
-		string apellidos_;
+		string apellido1_;
+		string apellido2_;
 		int telefono_;
 		string email_;
 
@@ -22,7 +23,8 @@ class Persona{
 		Persona(){
 			dni_="";
 			nombre_="";
-			apellidos_="";
+			apellido1_="";
+			apellido2_="";
 			telefono_=0;
 			email_="";
 		}
@@ -41,11 +43,22 @@ class Persona{
 			nombre_=n;
 		}
 
-		inline string getApellidos()const{
-			return apellidos_;
+		inline string getApellido1()const{
+			return apellido1_;
 		}
-		inline void setApellidos(string n){
-			apellidos_=n;
+		inline void setApellido1(string n){
+			apellido1_=n;
+		}
+
+		inline string getApellidos()const{
+			return apellido1_ +" " + apellido2_;
+		}
+
+		inline string getApellido2()const{
+			return apellido2_;
+		}
+		inline void setApellido2(string n){
+			apellido2_=n;
 		}
 
 		inline int getTelefono()const{

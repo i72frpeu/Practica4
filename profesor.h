@@ -35,9 +35,9 @@ class Profesor: public Agenda{
     void setRole(bool role){role_=role;};
     bool getRole(){return role_;};
 
-    void setProfesor(Profesor x);
+    Profesor setProfesor();
 
-    void getProfesor(Profesor x);
+    void getProfesor();
 
     void setCopia();
     void getCopia();
@@ -45,6 +45,6 @@ class Profesor: public Agenda{
     void setFichero(list <Alumno> listaAlumnos);
     list <Alumno> getFichero();
 
-    void guardarPorfesor(Profesor x);
+    void guardarPorfesor();
 };
 #endif
