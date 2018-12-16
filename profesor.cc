@@ -1,6 +1,10 @@
 #include "persona.h"
 #include "profesor.h"
 #include "agenda.h"
+#include "alumno.h"
+#include <list>
+#include <fstream>
+#include <iostream>
 
 int cont=0;
 
@@ -45,6 +49,10 @@ Profesor Profesor::setProfesor(){
   std::cin>>aux_b;
   x.setRole(aux_b);
 
+
+  x.guardarPorfesor(x);
+
+
 }
 
 void Profesor::getProfesor(Profesor x){
@@ -83,35 +91,86 @@ void Profesor::getProfesor(Profesor x){
 }
 
 void Profesor::setCopia(){
-   if(role_==true){setFichero(listaAlumnos_);cont++;}
+  std::ifstream f;
+  std::string DNI;
+  std::string DNI_aux, Nombre_aux, Apellido_aux, Email_aux, Asignatura_aux, Departamento_aux;
+  bool role_aux;
+  int telefono_aux;
+  int control = 0;
+  
+  cout<<"Por favor, introduzca su el DNI"<<endl;
+  cin>>DNI;
+
+  
+
+  f.open("Profesores.txt");
+
+   if(!f) cout<<"error al abrir el fichero"<<endl;
+   
+   while(f.eof()){
+    f>>DNI_aux>>Nombre_aux>>Apellido_aux>>telefono_aux>>Email_aux>>Apellido_aux>>Departamento_aux>>role_aux;
+    if(DNI_aux == DNI){
+      control = 1;
+    }
+   }
+
+   f.close();
+
+   if(control == 1){
+    setFichero(getlista());
+    cont++;
+  }else{
+    cout<<"No puede realizar copia de seguridad, porque no es administrador"<<endl;
+  }
  }
 void Profesor::getCopia(){
 	if(cont==0){cout<<"Error al obtener copia de seguridad, ya que no hay ninguna guardada\n";}
-   	else{getFichero(listaAlumnos_);}
+   	else{getFichero();}
 }
 
- void Profesor::setFichero(lista<Alumno> listaAlumnos){
-   ofstream fichero;
-   fichero.open("fich_bin");
-   if(!fichero) cout<<"error al abrir el fichero"<<endl;
-   else{
-     while(listaAlumnos!=feof()){
-       fichero.write(listaAlumnos, listaAlumnos.size());
-     }
+void Profesor::setFichero(list <Alumno> listaAlumnos){
+   std::ofstream f;
+
+   f.open("fich_bin.bin", ios::binary);
+
+   list<Alumno>::iterator i;
+   if(!f) cout<<"error al abrir el fichero"<<endl;
+   for(i = listaAlumnos.begin(); i != listaAlumnos.end(); i++){
+    f.write(reinterpret_cast<char *>(&i), sizeof(Alumno));
    }
-   fichero.close();
+
+   f.close();
+
  }
 
 
- void Profesor::getFichero(lista<Alumno> listaAlumnos){
-   ifstream fichero;
-   fichero.open("fich_bin");
-   if(!fichero) cout<<"error al abrir el fichero"<<endl;
+list <Alumno> Profesor::getFichero(){
+   std::ifstream f;
+   Alumno aux;
+   list <Alumno> aux_list;
+   f.open("fich_bin.bin", ios::binary);
+   if(!f) cout<<"error al abrir el fichero"<<endl;
    else{
-     while(listaAlumnos!=feof()){
-       fichero.read(listaAlumnos, listaAlumnos.size());
+     while(f.eof()){
+       f.read(reinterpret_cast<char *> (&aux), sizeof(Alumno));
+       aux_list.push_back(aux);
      }
    }
-   fichero.close();
- }
+   f.close();
+}
+
+
+void Profesor::guardarPorfesor(Profesor x){
+  std::ofstream f;
+
+   f.open("Profesores.txt");
+
+   if(!f) cout<<"error al abrir el fichero"<<endl;
+   
+   f<<x.getDNI()<<x.getNombre()<<x.getApellidos()<<x.getTelefono()<<x.getEmail()<<x.getAsignatura()<<x.getDepartamento()<<x.getRole();
+
+   f.close();
+
+}
+
 

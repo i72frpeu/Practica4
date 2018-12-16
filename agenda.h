@@ -19,6 +19,8 @@ class Agenda:public Alumno{
 
     Agenda(){numeroAlumnos_=0;};
 
+    list <Alumno> getlista(){return listaAlumnos_;};
+
     void setAlumno();
     list <Alumno> buscaAlumno();
     void getAlumno();

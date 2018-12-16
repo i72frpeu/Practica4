@@ -4,12 +4,14 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>
-#include <lista>
+#include <list>
 #include "persona.h"
+#include "alumno.h"
+#include "agenda.h"
 
 using namespace std;
 
-class Profesor: public Persona{
+class Profesor: public Agenda{
   private:
 
     string asignatura_;
@@ -40,7 +42,9 @@ class Profesor: public Persona{
     void setCopia();
     void getCopia();
 
-    void setFichero(lista<Alumno> listaAlumnos);
-    void getFichero(lista<Alumno> listaAlumnos);
+    void setFichero(list <Alumno> listaAlumnos);
+    list <Alumno> getFichero();
+
+    void guardarPorfesor(Profesor x);
 };
 #endif
