@@ -25,7 +25,7 @@ class Agenda:public Alumno{
 
     void eliminaAlumno();
     
-   // void modificaAlumno();*/
+    void modificaAlumno();
 
     list <Alumno> buscar_DNI(std::string DNI);
     list <Alumno> buscar_Apellido(std::string apellidos);

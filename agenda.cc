@@ -199,62 +199,53 @@ list <Alumno> Agenda::buscaAlumno(){
 
 }
 
-/*
+
 void Agenda::modificaAlumno(){
-  Alumno alumno;
-  int x=0;
-  cout<<"elige dato a cambiar\n";
-  cout<<"1-domicilio, 2-fecha, 3-curso, 4-equipo, 5-lider, 6-nota\n";
-  cin>>x;
-  buscaAlumno();
-  list<Alumno>::iterator i;
-  for(i=listaAlumno_.begin(); i!=listaAlumno_.end(); i++){
-    switch(x){
-      case 1:
-        string domicilio;
-        cout<<"Introduce el domicilio\n";
-        cin>>domicilio;
-        setDomicilio(domicilio);
+
+  list <Alumno> aux;
+  int n;
+
+  cout<<"Indique el alumno que quiere modificar"<<endl;
+  aux = buscaAlumno();
+
+  list <Alumno>::iterator i;
+
+  for(i = listaAlumnos_.begin(); i != listaAlumnos_.end(); i++){
+    if((*i).getDNI() = aux.getDNI()){
+      cout<<"Que elemento del alumno quiere cambiar"<<endl;
+      cout<<"1 = DNI, 2 = Nombre, 3 = Apellidos, 4 = Telefono, 5 = Email, 6 = Domicilio, 7 = Fecha de nacimiento, 8 = Curso, 9 = Equipo, 10 = Lider, 10 = Nota"<<endl;
+      cin>> n;
+      switch(n){
+        case 1:
+          std::string aux_s;
+          int control = 0;
+          cout<<"Introduzca nuevo DNI"<<endl;
+          cin>>aux_s;
+          list <Alumno>::iterator j;
+          for(j = listaAlumnos_.begin(); j != listaAlumnos_.end(); j++){
+            if(aux_s == (*j).getDNI()){
+              cout<<"DNI ya existe en el programa"<<endl;
+              control = 1;
+            }
+          }
+
+          if(control = 0){
+            (*i).setDNI(aux_s);
+          }
         break;
-      case 2:
-        Fecha fecha;
-        cout<<"Introduce dia, mes y año\n";
-        cin>>fecha.dia;
-        cin>>fecha.mes;
-        cin>>fecha.ano;
-        setFecha(fecha);
+
+        case 2:
+          std::string aux_s;
+          cout<<"Introduzca el el nuevo Nombre"<<endl;
+          cin>>aux_s;
+
         break;
-      case 3:
-        int curso;
-        cout<<"Introduce el curso\n";
-        cin>>curso;
-        setCurso(curso);
-        break;
-      case 4:
-        int equipo;
-        cout<<"Introduce el equipo\n";
-        cin>>equipo;
-        setEquipo(equipo);
-        break;
-      case 5:
-        string x;
-        bool lider;
-        cout"determina si es lider o no ( si | no)\n";
-        cin>>x;
-        if(x=="si"){return true;}
-        else{return false;}
-        setLider(lider);
-        break;
-      case 6:
-        float nota;
-        cout<<"Introduce la nota\n";
-        cin>>nota;
-        setNota(nota);
-        break;
+      }
     }
   }
-  listaAlumno_.assign(alumno);
-}*/
+
+}
+      
 
 list <Alumno> Agenda::buscar_DNI(std::string DNI){
  
