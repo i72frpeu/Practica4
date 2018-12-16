@@ -1,16 +1,15 @@
+#ifndef PROFESOR_H
+#define PROFESOR_H
+
 #include <iostream>
 #include <cstring>
 #include <fstream>
 #include <lista>
 #include "persona.h"
-#include "agenda.h"
-
-#ifndef PROFESOR_H
-#define PROFESOR_H
 
 using namespace std;
 
-class Profesor: public Persona, private Agenda{
+class Profesor: public Persona{
   private:
 
     string asignatura_;

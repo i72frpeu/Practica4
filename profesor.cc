@@ -1,6 +1,6 @@
-
-#include "profesor.h"
 #include "persona.h"
+#include "profesor.h"
+#include "agenda.h"
 
 int cont=0;
 

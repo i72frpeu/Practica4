@@ -35,22 +35,7 @@ int main(){
 		cout<<"INFORMACIÓN DEL PROFESOR."<<endl;
 		cout<<"Rellene la siguiente información:"<<endl;
 		x.setProfesor();
-	}
-
-	cout<<"¿Desea ver la información del profesor?"<<endl;
-	cout<<"1. Si"<<endl;
-	cout<<"2. no"<<endl;
-	cout<<"Seleccione una opción:"<<endl;
-	cin>>n;
-		if(n==1){
-			cout<<"MOSTRANDO INFORMACIÓN DEL PROFESOR"<<endl;
-			//x.getProfesor();
-			cout<<"--------------------------------------------------------"<<endl;
-		}
-		if(n==2){
-			cout<<endl;
-		}		
-		
+	
 		
 		for(int i=1; i != 0;){
 
@@ -60,7 +45,7 @@ int main(){
 			cout<<"Menú de opciones:"<<endl;
 			cout<<"1. Introducir alumno."<<endl;
 			cout<<"2. Mostrar alumno."<<endl;
-			cout<<"3. Buscar alumno."<<endl;
+			cout<<"3. Mostrar profesor."<<endl;
 			cout<<"4. Modificar alumno."<<endl;
 			cout<<"5. Borrar alumno."<<endl;
 			cout<<"6. Realizar copia de seguridad."<<endl;
@@ -85,8 +70,8 @@ int main(){
 			}
 
 			if(b==3){
-				cout<<"3. BUSCAR ALUMNO"<<endl;
-				y.buscaAlumno();
+				cout<<"3. MOSTRAR PROFESOR"<<endl;
+				//x.getProfesor();
 				cout<<"--------------------------------------------------------"<<endl;
 			}
 
@@ -123,9 +108,11 @@ int main(){
 			cout<<"No = 2"<<endl;
 			cin>>i;
 	}
+}
 
 	/*if(a==2){
 
+<<<<<<< HEAD
 		cout<<"INFORMACIÓN DEL PROFESOR."<<endl;
 		cout<<"Rellene la siguiente información:"<<endl;
 		x.setProfesor();
@@ -147,6 +134,9 @@ int main(){
 		
 		
 		for(int i=1; i!=0;){
+=======
+		for(int i=0; i<8000; i++){
+>>>>>>> 9e3cd5519f1d610164c398b9fcf71ad7e3b21816
 
 			cout<<"--------------------------------------------------------"<<endl;
 			cout<<"¿QUÉ DESEA REALIZAR?"<<endl;
@@ -154,7 +144,7 @@ int main(){
 			cout<<"Menú de opciones:"<<endl;
 			cout<<"1. Introducir alumno."<<endl;
 			cout<<"2. Mostrar alumno."<<endl;
-			cout<<"3. Buscar alumno."<<endl;
+			cout<<"3. Mostrar profesor."<<endl;
 			cout<<"4. Modificar alumno."<<endl;
 			cout<<"5. Borrar alumno."<<endl;
 			cout<<"6. Realizar copia de seguridad."<<endl;
@@ -179,8 +169,8 @@ int main(){
 			}
 
 			if(b==3){
-				cout<<"3. BUSCAR ALUMNO"<<endl;
-				y.buscaAlumno();
+				cout<<"3. MOSTRAR PROFESOR"<<endl;
+				//x.getProfesor();
 				cout<<"--------------------------------------------------------"<<endl;
 			}
 
@@ -211,9 +201,13 @@ int main(){
 			if(b==8){
 				exit(-1);
 			}
+<<<<<<< HEAD
 		cout<<"Quiere seguir usando el programa"<<endl;
 		cout<<"Si = 1"<<endl;
 		cout<<"No = 2"<<endl;
 		cin>>i;	
+=======
+		}
+>>>>>>> 9e3cd5519f1d610164c398b9fcf71ad7e3b21816
 	}
 }*/
