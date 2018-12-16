@@ -52,7 +52,7 @@ int main(){
 		}		
 		
 		
-		for(int i=0; i<8000; i++){
+		for(int i=1; i != 0;){
 
 			cout<<"--------------------------------------------------------"<<endl;
 			cout<<"¿QUÉ DESEA REALIZAR?"<<endl;
@@ -117,9 +117,14 @@ int main(){
 			if(b==8){
 				exit(-1);
 			}
+
+			cout<<"Quiere seguir usando el programa"<<endl;
+			cout<<"Si = 1"<<endl;
+			cout<<"No = 2"<<endl;
+			cin>>i;
 	}
 
-	if(a==2){
+	/*if(a==2){
 
 		cout<<"INFORMACIÓN DEL PROFESOR."<<endl;
 		cout<<"Rellene la siguiente información:"<<endl;
@@ -141,7 +146,7 @@ int main(){
 		}		
 		
 		
-		for(int i=0; i<8000; i++){
+		for(int i=1; i!=0;){
 
 			cout<<"--------------------------------------------------------"<<endl;
 			cout<<"¿QUÉ DESEA REALIZAR?"<<endl;
@@ -206,5 +211,9 @@ int main(){
 			if(b==8){
 				exit(-1);
 			}
+		cout<<"Quiere seguir usando el programa"<<endl;
+		cout<<"Si = 1"<<endl;
+		cout<<"No = 2"<<endl;
+		cin>>i;	
 	}
-}
+}*/

@@ -89,7 +89,7 @@ void Agenda::getAlumno(){
 
  aux = buscaAlumno();
 
- cout<<"Indique que informacioón quiere ver(pulse 1 para mostrar, 0 para no mostrar)\n";
+ cout<<"Indique que información quiere ver(pulse 1 para mostrar, 0 para no mostrar)\n";
  
  cout<<"DNI ";cin>>info[0];
  cout<<"Nombre ";cin>>info[1];
@@ -204,46 +204,110 @@ void Agenda::modificaAlumno(){
 
   list <Alumno> aux;
   int n;
+  std::string aux_s;
+  int aux_i;
+  float aux_f;
+  Fecha aux_fe;
+  bool aux_b;
+  int control = 0;
+  std::list <Alumno>::iterator j;
 
   cout<<"Indique el alumno que quiere modificar"<<endl;
   aux = buscaAlumno();
 
   list <Alumno>::iterator i;
+  list <Alumno>::iterator k;
 
   for(i = listaAlumnos_.begin(); i != listaAlumnos_.end(); i++){
-    if((*i).getDNI() = aux.getDNI()){
-      cout<<"Que elemento del alumno quiere cambiar"<<endl;
-      cout<<"1 = DNI, 2 = Nombre, 3 = Apellidos, 4 = Telefono, 5 = Email, 6 = Domicilio, 7 = Fecha de nacimiento, 8 = Curso, 9 = Equipo, 10 = Lider, 10 = Nota"<<endl;
-      cin>> n;
-      switch(n){
-        case 1:
-          std::string aux_s;
-          int control = 0;
-          cout<<"Introduzca nuevo DNI"<<endl;
-          cin>>aux_s;
-          list <Alumno>::iterator j;
-          for(j = listaAlumnos_.begin(); j != listaAlumnos_.end(); j++){
-            if(aux_s == (*j).getDNI()){
-              cout<<"DNI ya existe en el programa"<<endl;
-              control = 1;
+    for(k = aux.begin(); k != aux.end(); k++){
+      if((*i).getDNI() == (*k).getDNI()){
+        cout<<"Que elemento del alumno quiere cambiar"<<endl;
+        cout<<"1 = DNI, 2 = Nombre, 3 = Apellidos, 4 = Telefono, 5 = Email, 6 = Domicilio, 7 = Fecha de nacimiento, 8 = Curso, 9 = Equipo, 10 = Lider, 10 = Nota"<<endl;
+        cin>> n;
+        switch(n){
+          case 1:
+            cout<<"Introduzca nuevo DNI"<<endl;
+            cin>>aux_s;
+            for(j = listaAlumnos_.begin(); j != listaAlumnos_.end(); j++){
+              if(aux_s == (*j).getDNI()){
+                cout<<"DNI ya existe en el programa"<<endl;
+                control = 1;
+              }
             }
-          }
 
-          if(control = 0){
-            (*i).setDNI(aux_s);
-          }
-        break;
+            if(control = 0){
+              (*i).setDNI(aux_s);
+            }
+          break;
 
-        case 2:
-          std::string aux_s;
-          cout<<"Introduzca el el nuevo Nombre"<<endl;
-          cin>>aux_s;
+          case 2:
+            cout<<"Introduzca el nuevo Nombre"<<endl;
+            cin>>aux_s;
 
-        break;
+            (*i).setNombre(aux_s);
+          break;
+
+          case 3:
+            cout<<"Introduzca los nuevos Apellidos"<<endl;
+            cin>>aux_s;
+            (*i).setApellidos(aux_s);
+          break;
+
+          case 4:
+            cout<<"Introduzca el nuevo Telefono"<<endl;
+            cin>>aux_i;
+            (*i).setTelefono(aux_i);
+          break;
+
+          case 5:
+            cout<<"Introduzca el nuevo Email"<<endl;
+            cin>>aux_s;
+            (*i).setEmail(aux_s);
+          break;     
+
+          case 6:
+            cout<<"Introduzca el nuevo Domicilio"<<endl;
+            cin>>aux_s;
+            (*i).setDomicilio(aux_s);
+          break; 
+
+          case 7:
+            cout<<"Introduzca la nueva Fecha de Nacimiento"<<endl;
+            cin>>aux_fe.dia;
+            cin>>aux_fe.mes;
+            cin>>aux_fe.agno;
+            (*i).setFecha(aux_fe);
+          break; 
+
+          case 8:
+            cout<<"Introduzca el nuevo Curso"<<endl;
+            cin>>aux_i;
+            (*i).setCurso(aux_i);
+          break;   
+
+          case 9:
+            cout<<"Introduzca el nuevo Equipo"<<endl;
+            cin>>aux_i;
+            (*i).setEquipo(aux_i);
+          break;
+
+          case 10:
+            if((*i).getLider() == true){
+              (*i).setLider(false);
+            }else{
+              (*i).setLider(true);
+            }
+          break;
+
+          case 11:
+            cout<<"Introduzca la nueva Nota"<<endl;
+            cin>>aux_f;
+            (*i).setNota(aux_f);
+          break;
+        }
       }
     }
   }
-
 }
       
 
