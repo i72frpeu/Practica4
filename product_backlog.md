@@ -2,6 +2,10 @@
 
 Este documento contendrá todas las historias de usuario ordenadas por su prioridad funcional.
 
+###Crear las clases necesarias
+
+**`Prioridad -1.`**
+
 ### Buscar alumnos.
 
 **`Prioridad 0.`**
