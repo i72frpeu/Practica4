@@ -1,14 +1,16 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>
+#include <lista>
 #include "persona.h"
+#include "agenda.h"
 
 #ifndef PROFESOR_H
 #define PROFESOR_H
 
 using namespace std;
 
-class Profesor: public Persona{
+class Profesor: public Persona, private Agenda{
   private:
 
     string asignatura_;
@@ -36,12 +38,10 @@ class Profesor: public Persona{
 
     void getProfesor(Profesor x);
 
-  /*  void setCopia(Agenda copia);
-      void getCopia(){return copia_;};
+    void setCopia();
+    void getCopia();
 
-  
-    void setFichero(Agenda fichero);
-    void getFichero(Agenda fichero);
-  */
+    void setFichero(lista<Alumno> listaAlumnos);
+    void getFichero(lista<Alumno> listaAlumnos);
 };
 #endif

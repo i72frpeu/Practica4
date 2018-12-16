@@ -2,6 +2,8 @@
 #include "profesor.h"
 #include "persona.h"
 
+int cont=0;
+
 Profesor Profesor::setProfesor(){
 
   Profesor x;
@@ -80,35 +82,36 @@ void Profesor::getProfesor(Profesor x){
 
 }
 
-/*void Profesor::setCopia(Agenda copia){
-   if(role_==true){copia_=copia;}
-   else{exit(0);}
+void Profesor::setCopia(){
+   if(role_==true){setFichero(listaAlumnos_);cont++;}
  }
+void Profesor::getCopia(){
+	if(cont==0){cout<<"Error al obtener copia de seguridad, ya que no hay ninguna guardada\n";}
+   	else{getFichero(listaAlumnos_);}
+}
 
-
-
- void Profesor::setFichero(Agenda fichero){
+ void Profesor::setFichero(lista<Alumno> listaAlumnos){
    ofstream fichero;
    fichero.open("fich_bin");
    if(!fichero) cout<<"error al abrir el fichero"<<endl;
    else{
-     while(copia!=feof()){
-       fichero.write(copia, 1000);
+     while(listaAlumnos!=feof()){
+       fichero.write(listaAlumnos, listaAlumnos.size());
      }
    }
    fichero.close();
  }
 
 
- Agenda Profesor::getFichero(Agenda fichero){
+ void Profesor::getFichero(lista<Alumno> listaAlumnos){
    ifstream fichero;
    fichero.open("fich_bin");
    if(!fichero) cout<<"error al abrir el fichero"<<endl;
    else{
-     while(copia!=feof()){
-       fichero.read(copia,1000);
+     while(listaAlumnos!=feof()){
+       fichero.read(listaAlumnos, listaAlumnos.size());
      }
    }
    fichero.close();
  }
-*/
+
