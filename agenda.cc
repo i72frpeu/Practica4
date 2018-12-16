@@ -318,7 +318,7 @@ list <Alumno> Agenda::buscar_DNI(std::string DNI){
 
   if(listaAlumnos_.empty()==true){
       cout<<"Error, no hay alumnos en la lista \n"<<endl;
-      exit(-1);
+      exit(0);
   }else{
       for(i = listaAlumnos_.begin(); i != listaAlumnos_.end(); i++){
           if(i->getDNI()==DNI){
@@ -337,7 +337,7 @@ list <Alumno> Agenda::buscar_Apellido(std::string apellidos){
 
   if(listaAlumnos_.empty()==true){
     cout<<"Error, no hay alumnos en la lista \n"<<endl;
-    exit(-1);
+    exit(0);
   }else{
     for(i=listaAlumnos_.begin(); i!=listaAlumnos_.end(); i++){
       if(i->getApellidos()==apellidos){
@@ -356,7 +356,7 @@ list <Alumno> Agenda::buscar(std::string email){
 
   if(listaAlumnos_.empty()==true){
     cout<<"Error, no hay alumnos en la lista \n"<<endl;
-    exit(-1);
+    exit(0);
   }else{
     for(i=listaAlumnos_.begin(); i!=listaAlumnos_.end(); i++){
       if(i->getEmail()==email){

@@ -8,9 +8,8 @@
 
 int cont=0;
 
-Profesor Profesor::setProfesor(){
+void Profesor::setProfesor(Profesor x){
 
-  Profesor x;
   int aux_i;
   std::string aux;
   bool aux_b;
@@ -48,10 +47,6 @@ Profesor Profesor::setProfesor(){
   std::cout<<"Introduzca el rol del profesor"<<endl;
   std::cin>>aux_b;
   x.setRole(aux_b);
-
-
-  x.guardarPorfesor(x);
-
 
 }
 

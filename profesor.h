@@ -35,7 +35,7 @@ class Profesor: public Agenda{
     void setRole(bool role){role_=role;};
     bool getRole(){return role_;};
 
-    Profesor setProfesor();
+    void setProfesor(Profesor x);
 
     void getProfesor(Profesor x);
 

@@ -14,7 +14,7 @@ using namespace std;
 int main(){
 
 	Profesor x;
-	Agenda y;
+	
 
 
 	int a=0;
@@ -32,11 +32,12 @@ int main(){
 
 
 	if(a == 1){
-		x.setProfesor();
+		x.setProfesor(x);
+		x.guardarPorfesor(x);
 	}
 
 	
-	
+	Agenda y;
 		
 		for(int i=1; i != 0;){
 
